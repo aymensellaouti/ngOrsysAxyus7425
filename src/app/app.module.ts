@@ -14,6 +14,8 @@ import { CvComponent } from './cv/cv/cv.component';
 import { CvListComponent } from './cv/cv-list/cv-list.component';
 import { CvItemComponent } from './cv/cv-item/cv-item.component';
 import { CvCardComponent } from './cv/cv-card/cv-card.component';
+import { ExempleNgStyleComponent } from './directvies/exemple-ng-style/exemple-ng-style.component';
+import { MiniWordComponent } from './directvies/mini-word/mini-word.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +29,9 @@ import { CvCardComponent } from './cv/cv-card/cv-card.component';
     CvComponent,
     CvListComponent,
     CvItemComponent,
-    CvCardComponent
+    CvCardComponent,
+    ExempleNgStyleComponent,
+    MiniWordComponent
   ],
   imports: [
     BrowserModule,

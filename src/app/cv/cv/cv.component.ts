@@ -25,9 +25,58 @@ export class CvComponent {
       'orfila',
       'chloé',
       'Dev',
-      '123',
+      '1234',
       20,
       'rotating_card_profile.png'
+    ),
+    new Cv(
+      3,
+      'Chaignaud',
+      'Pierre',
+      'Dev',
+      '1235',
+      20,
+      'rotating_card_profile2.png'
+    ),new Cv(
+      4,
+      'Rakotoniaina',
+      'Frank',
+      'Dev',
+      '1236',
+      20,
+      'rotating_card_profile3.png'
+    ),new Cv(
+      5,
+      'Cartiaux',
+      'Jerome',
+      'Dev',
+      '1237',
+      20,
+      'rotating_card_profile2.png'
+    ),new Cv(
+      6,
+      'Castillo',
+      'Matiu',
+      'Dev',
+      '1238',
+      20,
+      'rotating_card_profile3.png'
+    ),new Cv(
+      7,
+      'Metreau',
+      'Stéphane',
+      'Dev',
+      '1239',
+      20,
+      'rotating_card_profile2.png'
+    ),new Cv(
+      8,
+      'Dupin',
+      'Frédéric',
+      'Dev',
+      '12310',
+      20,
+      'rotating_card_profile3.png'
     ),
   ];
 
