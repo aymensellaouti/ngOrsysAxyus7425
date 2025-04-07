@@ -1,2 +1,9 @@
-<p>first works!</p>
+<p [hidden]="isHidden">{{name}} works : {{message}}</p>
+<input
+  (change)="changeMessage(myOtherInput.value)"
+  #myInput type="text">
+<button (click)="showHide()" class="btn btn-danger">
+  show/hide
+</button>
+<input type="text" #myOtherInput>
 <app-second />
