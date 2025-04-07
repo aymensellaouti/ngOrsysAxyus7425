@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./pere.component.css']
 })
 export class PereComponent {
+  processFilsMessage(messageDeMonFils: string) {
+    alert(messageDeMonFils + ' : cest bien de rever mon fils :D')
+  }
 
 }
