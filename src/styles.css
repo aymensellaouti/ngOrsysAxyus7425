@@ -1,3 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
 /* Va chercher bootstrap dans node_modules(~) */
 @import '~bootstrap';
+@import '~bootstrap-icons';
