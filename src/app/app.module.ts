@@ -5,16 +5,20 @@ import { AppComponent } from './app.component';
 import { FirstComponent } from './components/first/first.component';
 import { SecondComponent } from './components/second/second.component';
 import { ColorComponent } from './components/color/color.component';
+import { TwoComponent } from './components/two/two.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
     FirstComponent,
     SecondComponent,
-    ColorComponent
+    ColorComponent,
+    TwoComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
