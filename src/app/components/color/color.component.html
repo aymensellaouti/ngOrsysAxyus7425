@@ -1,5 +1,8 @@
 <div [style.backgroundColor]="color">color works!</div>
 
+
+<input [(ngModel)]="color" type="color">
+
 <input
   #inputColor
   (change)="changeColor(inputColor)"

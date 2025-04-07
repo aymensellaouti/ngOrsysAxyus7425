@@ -2,3 +2,4 @@
 /* Va chercher bootstrap dans node_modules(~) */
 @import '~bootstrap';
 @import '~bootstrap-icons';
+@import './assets/css/rotating-card.css';
