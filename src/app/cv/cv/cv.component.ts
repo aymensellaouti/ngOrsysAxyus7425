@@ -35,4 +35,8 @@ export class CvComponent {
    * Le cv sélectionné
    */
   selectedCv: Cv | null = null;
+
+  onForwardCv(cv: Cv) {
+    this.selectedCv = cv;
+  }
 }
