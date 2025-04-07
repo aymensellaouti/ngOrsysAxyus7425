@@ -1,0 +1,16 @@
+/* Toute balise p */
+/* p {
+  color: red;
+} */
+/* Tout élément qui a une classe p */
+/* .p {
+  color: red;
+} */
+/* Tout élément qui a un id p */
+/* #p {
+  color: red;
+} */
+/* Tout élément qui a attribut p qui est égale à cc */
+/* [p='cc'] {
+  color: red;
+} */
