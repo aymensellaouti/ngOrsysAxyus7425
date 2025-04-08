@@ -5,6 +5,8 @@ import { CvComponent } from './cv/cv/cv.component';
 import { TodoComponent } from './todo/todo/todo.component';
 import { MiniWordComponent } from './directvies/mini-word/mini-word.component';
 import { ColorComponent } from './components/color/color.component';
+import { SecondComponent } from './components/second/second.component';
+import { LampeComponent } from './directives/lampe/lampe.component';
 
 const routes: Routes = [
   {path: '', component: FirstComponent},
@@ -12,6 +14,8 @@ const routes: Routes = [
   {path: 'todo', component: TodoComponent},
   {path: 'word', component: MiniWordComponent},
   {path: 'color', component: ColorComponent},
+  {path: ':quelquechose', component: SecondComponent},
+  {path: 'test/lampe', component: LampeComponent},
 ];
 
 @NgModule({

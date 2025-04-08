@@ -31,6 +31,7 @@ import { LoggerService } from './services/logger.service';
 import { WeekTodoComponent } from './todo/week-todo/week-todo.component';
 import { EmbaucheComponent } from './cv/embauche/embauche.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { DetailsCvComponent } from './cv/details-cv/details-cv.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +46,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     CvListComponent,
     CvItemComponent,
     CvCardComponent,
+    DetailsCvComponent,
     ExempleNgStyleComponent,
     MiniWordComponent,
     LampeComponent,
