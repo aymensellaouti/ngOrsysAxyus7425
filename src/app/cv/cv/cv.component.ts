@@ -19,7 +19,7 @@ export class CvComponent {
       'trainer',
       '123',
       42,
-      'rotating_card_profile3.png'
+      ''
     ),
     new Cv(
       2,
@@ -53,7 +53,7 @@ export class CvComponent {
       'Dev',
       '1237',
       20,
-      'rotating_card_profile2.png'
+      '             '
     ),new Cv(
       6,
       'Castillo',
@@ -76,6 +76,14 @@ export class CvComponent {
       'Frédéric',
       'Dev',
       '12310',
+      20,
+      'rotating_card_profile3.png'
+    ),new Cv(
+      9,
+      'DuPauwels',
+      'Quentin',
+      'Dev',
+      '12311',
       20,
       'rotating_card_profile3.png'
     ),

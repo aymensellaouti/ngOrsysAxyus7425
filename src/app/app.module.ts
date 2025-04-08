@@ -20,6 +20,7 @@ import { LampeComponent } from './directives/lampe/lampe.component';
 import { HighlightDirective } from './directives/highlight.directive';
 import { RainbowDirective } from './directives/rainbow.directive';
 import { Btc2UsdPipe } from './pipes/btc2-usd.pipe';
+import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,8 @@ import { Btc2UsdPipe } from './pipes/btc2-usd.pipe';
     LampeComponent,
     HighlightDirective,
     RainbowDirective,
-    Btc2UsdPipe
+    Btc2UsdPipe,
+    DefaultImagePipe
   ],
   imports: [
     BrowserModule,
