@@ -7,13 +7,16 @@ import { MiniWordComponent } from './directvies/mini-word/mini-word.component';
 import { ColorComponent } from './components/color/color.component';
 import { SecondComponent } from './components/second/second.component';
 import { LampeComponent } from './directives/lampe/lampe.component';
+import { DetailsCvComponent } from './cv/details-cv/details-cv.component';
+import { APP_ROUTES } from './config/app-routes.config';
 
 const routes: Routes = [
   {path: '', component: FirstComponent},
-  {path: 'cv', component: CvComponent},
-  {path: 'todo', component: TodoComponent},
+  {path: APP_ROUTES.cv, component: CvComponent},
+  {path: APP_ROUTES.todo, component: TodoComponent},
   {path: 'word', component: MiniWordComponent},
   {path: 'color', component: ColorComponent},
+  {path: APP_ROUTES.detailsCv, component: DetailsCvComponent},
   {path: ':quelquechose', component: SecondComponent},
   {path: 'test/lampe', component: LampeComponent},
 ];
