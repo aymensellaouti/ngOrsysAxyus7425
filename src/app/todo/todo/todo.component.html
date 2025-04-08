@@ -2,18 +2,23 @@
   <div class="col">
     <ol class="list-group">
       <li
+        *ngFor="let todo of todos"
         class="list-group-item">
-        TODO
+        {{todo.name}} : {{todo.content}}
         <i
-          class="bi bi-trash2"></i>
+          class="bi bi-trash2"
+          (click)="deleteTodo(todo)"
+        ></i>
       </li>
     </ol>
   </div>
   <div class="col">
     name:
-    <input  type="text" class="form-control" /> content:
-    <input  type="text" class="form-control" />
+    <input [(ngModel)]="todo.name" type="text" class="form-control" /> content:
+    <input [(ngModel)]="todo.content" type="text" class="form-control" />
     <button
+      (click)="addTodo()"
+      [disabled]="!todo.name.trim() || !todo.content.trim()"
       class="btn btn-primary m-2"
     >
       add
