@@ -30,6 +30,7 @@ import { TodoComponent } from './todo/todo/todo.component';
 import { LoggerService } from './services/logger.service';
 import { WeekTodoComponent } from './todo/week-todo/week-todo.component';
 import { EmbaucheComponent } from './cv/embauche/embauche.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +54,8 @@ import { EmbaucheComponent } from './cv/embauche/embauche.component';
     DefaultImagePipe,
     TodoComponent,
     WeekTodoComponent,
-    EmbaucheComponent
+    EmbaucheComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
