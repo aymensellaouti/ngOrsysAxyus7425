@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+
 import { AppRoutingModule } from './app-routing.module';
+
+import { ToastrModule } from 'ngx-toastr';
+
 import { AppComponent } from './app.component';
 import { FirstComponent } from './components/first/first.component';
 import { SecondComponent } from './components/second/second.component';
 import { ColorComponent } from './components/color/color.component';
 import { TwoComponent } from './components/two/two.component';
-import { FormsModule } from '@angular/forms';
 import { RotatingCardComponent } from './components/rotating-card/rotating-card.component';
 import { PereComponent } from './commInterCompo/pere/pere.component';
 import { FilsComponent } from './commInterCompo/fils/fils.component';
@@ -23,6 +28,7 @@ import { Btc2UsdPipe } from './pipes/btc2-usd.pipe';
 import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
 import { TodoComponent } from './todo/todo/todo.component';
 import { LoggerService } from './services/logger.service';
+import { WeekTodoComponent } from './todo/week-todo/week-todo.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,18 +50,21 @@ import { LoggerService } from './services/logger.service';
     RainbowDirective,
     Btc2UsdPipe,
     DefaultImagePipe,
-    TodoComponent
+    TodoComponent,
+    WeekTodoComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
   ],
   // Menu c'est ce que fournit le framework
   providers: [
     // Je met le plat LoggerService dans mon menu
     //LoggerService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
