@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Cv } from '../model/cv.model';
+import { LoggerService } from 'src/app/services/logger.service';
 
 @Component({
   selector: 'app-cv',
@@ -12,15 +13,7 @@ export class CvComponent {
    * La liste des cvs
    */
   cvs: Cv[] = [
-    new Cv(
-      1,
-      'sellaouti',
-      'aymen',
-      'trainer',
-      '123',
-      42,
-      ''
-    ),
+    new Cv(1, 'sellaouti', 'aymen', 'trainer', '123', 42, ''),
     new Cv(
       2,
       'orfila',
@@ -38,7 +31,8 @@ export class CvComponent {
       '1235',
       20,
       'rotating_card_profile2.png'
-    ),new Cv(
+    ),
+    new Cv(
       4,
       'Rakotoniaina',
       'Frank',
@@ -46,15 +40,9 @@ export class CvComponent {
       '1236',
       20,
       'rotating_card_profile3.png'
-    ),new Cv(
-      5,
-      'Cartiaux',
-      'Jerome',
-      'Dev',
-      '1237',
-      20,
-      '             '
-    ),new Cv(
+    ),
+    new Cv(5, 'Cartiaux', 'Jerome', 'Dev', '1237', 20, '             '),
+    new Cv(
       6,
       'Castillo',
       'Matiu',
@@ -62,7 +50,8 @@ export class CvComponent {
       '1238',
       20,
       'rotating_card_profile3.png'
-    ),new Cv(
+    ),
+    new Cv(
       7,
       'Metreau',
       'Stéphane',
@@ -70,7 +59,8 @@ export class CvComponent {
       '1239',
       20,
       'rotating_card_profile2.png'
-    ),new Cv(
+    ),
+    new Cv(
       8,
       'Dupin',
       'Frédéric',
@@ -78,7 +68,8 @@ export class CvComponent {
       '12310',
       20,
       'rotating_card_profile3.png'
-    ),new Cv(
+    ),
+    new Cv(
       9,
       'DuPauwels',
       'Quentin',
@@ -93,7 +84,15 @@ export class CvComponent {
    * Le cv sélectionné
    */
   selectedCv: Cv | null = null;
+  // J'ai commandé un plat loggerService
+  private loggerService = inject(LoggerService);
+  constructor(
+    //private loggerService: LoggerService
+  ) // J'ai commandé un plat loggerService
 
+  {
+    this.loggerService.logger('cc je suis le cvComponent');
+  }
   onForwardCv(cv: Cv) {
     this.selectedCv = cv;
   }

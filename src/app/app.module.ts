@@ -21,6 +21,8 @@ import { HighlightDirective } from './directives/highlight.directive';
 import { RainbowDirective } from './directives/rainbow.directive';
 import { Btc2UsdPipe } from './pipes/btc2-usd.pipe';
 import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
+import { TodoComponent } from './todo/todo/todo.component';
+import { LoggerService } from './services/logger.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,14 +43,19 @@ import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
     HighlightDirective,
     RainbowDirective,
     Btc2UsdPipe,
-    DefaultImagePipe
+    DefaultImagePipe,
+    TodoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  // Menu c'est ce que fournit le framework
+  providers: [
+    // Je met le plat LoggerService dans mon menu
+    //LoggerService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
