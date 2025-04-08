@@ -9,6 +9,4 @@ import { Component } from '@angular/core';
   //  C'est les fichiers css qui mette en page mon fichier html
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'ngOrsysAxyus7425';
-}
+export class AppComponent {}
