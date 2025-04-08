@@ -18,6 +18,7 @@ import { ExempleNgStyleComponent } from './directvies/exemple-ng-style/exemple-n
 import { MiniWordComponent } from './directvies/mini-word/mini-word.component';
 import { LampeComponent } from './directives/lampe/lampe.component';
 import { HighlightDirective } from './directives/highlight.directive';
+import { RainbowDirective } from './directives/rainbow.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,8 @@ import { HighlightDirective } from './directives/highlight.directive';
     ExempleNgStyleComponent,
     MiniWordComponent,
     LampeComponent,
-    HighlightDirective
+    HighlightDirective,
+    RainbowDirective
   ],
   imports: [
     BrowserModule,
