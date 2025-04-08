@@ -17,7 +17,11 @@ export class EmbaucheService {
    * @param cv - le Cv à embaucher
    * @returns {boolean} return true si embauchée false sinon
    */
-  embaucher(cv: Cv): boolean {
+  hire(cv: Cv): boolean {
+    if(!this.#embauchees.includes(cv)) {
+      this.#embauchees.push(cv);
+      return true;
+    }
     return false;
   }
 }

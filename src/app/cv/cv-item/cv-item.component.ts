@@ -11,7 +11,8 @@ export class CvItemComponent {
   // Je définis l'état du composant
   @Input({required: true})
   cv!: Cv;
-
+  @Input()
+  size = 50;
   // je défnis un event signalant qu'on clické sur moi
   @Output()
   selectCv = new EventEmitter<Cv>();
