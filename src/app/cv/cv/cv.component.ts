@@ -7,6 +7,7 @@ import { Cv } from '../model/cv.model';
   styleUrls: ['./cv.component.css'],
 })
 export class CvComponent {
+  today = new Date();
   /**
    * La liste des cvs
    */
