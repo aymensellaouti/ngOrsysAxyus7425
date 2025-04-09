@@ -2,7 +2,9 @@ import { inject, Injectable } from '@angular/core';
 import { APP_CONST } from '../config/constantes.config';
 import { Credentials } from './dto/credentials.dto';
 import { LoginResonse } from './dto/login-response.dto';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { APP_API } from '../config/app-api.config';
 
 
 
@@ -12,16 +14,26 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  login(credentials: Credentials)
-  //: Observable<LoginResonse>
+  http = inject(HttpClient);
+  login(credentials: Credentials): Observable<LoginResonse>
   {
     // Todo: Appeler l'api avec les credentials et retourner un observable
+    return this.http.post<LoginResonse>(APP_API.login, credentials).pipe(
+      // L'opérateur des effets de bords
+      tap(response => {
+        this.saveToken(response.id);
+      })
+    );
   }
 
-  logout() {}
+  logout() {
+    if(this.isAuthenticated()) {
+      this.clearToken();
+    }
+  }
 
   isAuthenticated(): boolean {
-    return false;
+    return !!this.getToken();
   }
 
   getToken(): string {

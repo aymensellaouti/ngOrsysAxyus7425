@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -36,6 +36,7 @@ import { NF404Component } from './components/nf404/nf404.component';
 import { TestFormComponent } from './formulaires/test-form/test-form.component';
 import { LoginComponent } from './auth/login/login.component';
 import { TestObservableComponent } from './rxjs/test-observable/test-observable.component';
+import { AddCvComponent } from './cv/add-cv/add-cv.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +52,7 @@ import { TestObservableComponent } from './rxjs/test-observable/test-observable.
     CvItemComponent,
     CvCardComponent,
     DetailsCvComponent,
+    AddCvComponent,
     ExempleNgStyleComponent,
     MiniWordComponent,
     LampeComponent,
@@ -71,6 +73,7 @@ import { TestObservableComponent } from './rxjs/test-observable/test-observable.
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
     HttpClientModule

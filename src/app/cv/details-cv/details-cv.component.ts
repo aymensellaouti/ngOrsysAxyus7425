@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { CvService } from "../services/cv.service";
 import { APP_ROUTES } from "src/app/config/app-routes.config";
 import { ToastrService } from "ngx-toastr";
+import { AuthService } from "src/app/auth/auth.service";
 
 @Component({
   selector: 'app-details-cv',
@@ -18,6 +19,10 @@ export class DetailsCvComponent {
   private router = inject(Router);
   private cvService = inject(CvService);
   private toaster = inject(ToastrService);
+  authService = inject(AuthService);
+  isAuthenticated(): boolean {
+    return this.authService.isAuthenticated();
+  }
   // 1- Injecter ActivatedRoute
   constructor() {
   // 2- Récupérer l'id

@@ -11,6 +11,7 @@ import { DetailsCvComponent } from './cv/details-cv/details-cv.component';
 import { APP_ROUTES } from './config/app-routes.config';
 import { NF404Component } from './components/nf404/nf404.component';
 import { LoginComponent } from './auth/login/login.component';
+import { AddCvComponent } from './cv/add-cv/add-cv.component';
 
 const routes: Routes = [
   {path: '', component: FirstComponent},
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: 'word', component: MiniWordComponent},
   {path: 'color', component: ColorComponent},
   {path: 'login', component: LoginComponent},
+  {path: APP_ROUTES.addCv, component: AddCvComponent},
   {path: APP_ROUTES.detailsCv, component: DetailsCvComponent},
   {path: ':quelquechose', component: SecondComponent},
   {path: 'test/lampe', component: LampeComponent},
