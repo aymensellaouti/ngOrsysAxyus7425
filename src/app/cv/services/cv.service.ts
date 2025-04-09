@@ -110,6 +110,13 @@ export class CvService {
   getCvByIdFromApi(id: number): Observable<Cv> {
     return this.http.get<Cv>(APP_API.cvs + id);
   }
+  /**
+   * Retourne un observable d'un cv
+   * @returns Observable<Cv>
+   */
+  deleteCvByIdFromApi(id: number): Observable<{count:number}> {
+    return this.http.delete<{ count: number }>(APP_API.cvs + id);
+  }
 
   /**
    *

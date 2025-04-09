@@ -3,6 +3,7 @@ import { Cv } from "../model/cv.model";
 import { ActivatedRoute, Router } from "@angular/router";
 import { CvService } from "../services/cv.service";
 import { APP_ROUTES } from "src/app/config/app-routes.config";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: 'app-details-cv',
@@ -16,6 +17,7 @@ export class DetailsCvComponent {
   // Il nous permet de déclencher un routage ou une navigation programatiquement
   private router = inject(Router);
   private cvService = inject(CvService);
+  private toaster = inject(ToastrService);
   // 1- Injecter ActivatedRoute
   constructor() {
   // 2- Récupérer l'id
@@ -38,9 +40,17 @@ export class DetailsCvComponent {
   deleteCv() {
     if (this.cv) {
       // Permettre la suppression du cv
-      this.cvService.deleteCv(this.cv);
-      // Ensuite elle redirige
-      this.router.navigate([APP_ROUTES.cv]);
+      this.cvService.deleteCvByIdFromApi(this.cv.id).subscribe({
+        next: () => {
+          // Ensuite elle redirige
+          this.router.navigate([APP_ROUTES.cv]);
+        },
+        error: (e) => {
+          this.toaster.error(`Un problème est survenue merci de contacter l'admin`);
+          console.log(e);
+        }
+      });
+
     }
   }
 }

@@ -1,3 +1,4 @@
 export const APP_CONST = {
-  defaultPath: 'cv.png'
-}
+  defaultPath: 'cv.png',
+  tokenKey: 'token',
+};
