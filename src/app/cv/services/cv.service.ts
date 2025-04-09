@@ -104,6 +104,14 @@ export class CvService {
   }
 
   /**
+   * Retourne un observable d'un cv
+   * @returns Observable<Cv>
+   */
+  getCvByIdFromApi(id: number): Observable<Cv> {
+    return this.http.get<Cv>(APP_API.cvs + id);
+  }
+
+  /**
    *
    * Cherche un cv avec son id dans lai liste fictive de cvs
    *

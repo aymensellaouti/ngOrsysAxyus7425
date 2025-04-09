@@ -26,7 +26,7 @@ export class CvComponent implements OnDestroy {
   .pipe(
     retry({
       count: 3,
-      delay: 3000,
+      delay: 500,
     }),
     catchError(
       erreur => {
