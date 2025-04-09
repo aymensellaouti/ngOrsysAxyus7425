@@ -6,10 +6,11 @@ import { Todo } from "../model/todo";
   selector: 'app-todo',
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.css'],
-  providers: [TodoService]
+  // providers: [TodoService]
 })
 export class TodoComponent {
   private readonly todoService = inject(TodoService);
+
   // L'état du composant
   protected todos: Todo[] = this.todoService.getTodos();
   protected todo = new Todo();
@@ -20,5 +21,12 @@ export class TodoComponent {
   }
   deleteTodo(todo: Todo) {
     this.todoService.deleteTodo(todo);
+  }
+  getTodosApi() {
+    this.todoService.getTodosFromApi().subscribe({
+      next: todos => {
+        console.log({todos});
+      }
+    });
   }
 }
