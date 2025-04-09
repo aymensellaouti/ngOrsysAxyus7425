@@ -1,15 +1,16 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnDestroy } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { filter, map, Observable } from 'rxjs';
+import { filter, map, Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-test-observable',
   templateUrl: './test-observable.component.html',
   styleUrls: ['./test-observable.component.css'],
 })
-export class TestObservableComponent {
+export class TestObservableComponent implements OnDestroy {
   myObservable$: Observable<number>;
   toastr = inject(ToastrService);
+  subscriptions = new Subscription();
   // countDown = 5;
   constructor() {
     // Pattern 1 (fluw) TO N (observateurs)
@@ -25,14 +26,14 @@ export class TestObservableComponent {
       }, 1000);
     });
     // 1ere inscription
-    this.myObservable$.subscribe({
+    this.subscriptions.add(this.myObservable$.subscribe({
       next: (val) => {
         console.log(val);
       },
-    });
+    }));
     // 2éme inscription
     // setTimeout(() => {
-      this.myObservable$
+      this.subscriptions.add(this.myObservable$
         // 5 4 3 2 1
         .pipe(
           // 5 4 3 2 1
@@ -48,12 +49,15 @@ export class TestObservableComponent {
           complete: () => {
             this.toastr.error('FIN DU COMPTE A REBOURS !!!!!!!');
           },
-        });
+        }));
     // this.myObservable$.subscribe({
     //   next: (val) => {
     //     this.countDown = val;
     //   },
     // });
     // }, 3000)
+  }
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
   }
 }
