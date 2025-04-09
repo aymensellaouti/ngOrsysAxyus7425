@@ -5,7 +5,7 @@
       <p>{{1 | btc2Usd | currency}}</p>
       <p>{{1 | btc2Usd : false}}</p>
     </div>
-    <app-cv-list [cvs]="cvs" />
+    <app-cv-list *ngIf="cvs$ | async as cvs" [cvs]="cvs" />
   </div>
   <div class="col">
     <app-cv-card [cv]="selectedCv$ | async" />
