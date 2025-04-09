@@ -11,7 +11,9 @@ import { APP_ROUTES } from "src/app/config/app-routes.config";
 })
 export class DetailsCvComponent {
   cv: Cv | null = null;
+  // Il permet de récupérer les informations sur la route active
   private acr = inject(ActivatedRoute);
+  // Il nous permet de déclencher un routage ou une navigation programatiquement
   private router = inject(Router);
   private cvService = inject(CvService);
   // 1- Injecter ActivatedRoute
