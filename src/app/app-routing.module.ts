@@ -22,6 +22,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
+  // On a définit notre routeur
   imports: [RouterModule.forRoot(routes)],
   // Tout ce qu'il y a à l'intérieur du module n'est visible que
   // pour le module
