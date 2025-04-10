@@ -1,8 +1,10 @@
 import {  inject, Injectable } from '@angular/core';
 import { Cv } from '../model/cv.model';
 import { catchError, distinctUntilChanged, Observable, Subject, tap } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { APP_API } from 'src/app/config/app-api.config';
+import { APP_CONST } from 'src/app/config/constantes.config';
+import { AuthService } from 'src/app/auth/auth.service';
 
 
 @Injectable({
@@ -80,7 +82,7 @@ export class CvService {
   // Je crée le flux des cvs
   #selectCvSubject$ = new Subject<Cv>();
   http = inject(HttpClient);
-
+  authService = inject(AuthService);
   /**
    * Le flux des cvs sélectionnés
    */
@@ -115,7 +117,12 @@ export class CvService {
    * @returns Observable<Cv>
    */
   deleteCvByIdFromApi(id: number): Observable<{count:number}> {
-    return this.http.delete<{ count: number }>(APP_API.cvs + id);
+    // const params = new HttpParams().set(APP_CONST.accessTokenParamKey, this.authService.getToken());
+    const headers = new HttpHeaders().set(
+      APP_CONST.authorizationHeaderKey,
+      this.authService.getToken()
+    );
+    return this.http.delete<{ count: number }>(APP_API.cvs + id, { headers });
   }
 
   /**

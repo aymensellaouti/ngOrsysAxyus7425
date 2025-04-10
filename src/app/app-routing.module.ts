@@ -16,7 +16,7 @@ import { AddCvComponent } from './cv/add-cv/add-cv.component';
 const routes: Routes = [
   {path: '', component: FirstComponent},
   {path: APP_ROUTES.cv, component: CvComponent},
-  {path: APP_ROUTES.todo, component: TodoComponent},
+  {path: APP_ROUTES.todo, component: TodoComponent, canActivate:[]},
   {path: 'word', component: MiniWordComponent},
   {path: 'color', component: ColorComponent},
   {path: 'login', component: LoginComponent},
