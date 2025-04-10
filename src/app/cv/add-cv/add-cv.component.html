@@ -13,17 +13,22 @@
   <input type="text" class="form-control" formControlName="firstname" /> Age:
   <input type="text" class="form-control" formControlName="age" /> Cin:
   <input type="text" class="form-control" formControlName="cin" />
-  <!-- <div
+  <div
     *ngIf="
-      form.errors && form.errors['cinFirstCars'] && cin?.touched && age?.touched
+      cin.errors && cin.errors['champUnique'] && cin?.touched
     "
     class="alert alert-danger"
   >
-    Cette Cin est invalide
-  </div> -->
+    {{cin.errors['champUnique']}}
+  </div>
   Job: <input type="text" class="form-control" formControlName="job" /> Path:
   <input type="text" class="form-control" formControlName="path" />
 
+  <div *ngIf="
+        form.errors && form.errors['ageCin'] && cin?.touched && age?.touched
+      " class="alert alert-danger">
+    {{form.errors['ageCin']}}
+  </div>
   <button [disabled]="form.invalid" class="btn btn-primary" (click)="addCv()">
     add cv
   </button>
