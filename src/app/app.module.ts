@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -29,7 +29,14 @@ import { LoginComponent } from './auth/login/login.component';
 import { TestObservableComponent } from './rxjs/test-observable/test-observable.component';
 import { authProvider } from './auth/interceptors/auth.interceptor';
 
-import { CvModule } from './cv/cv.module';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
+
 
 @NgModule({
   declarations: [
@@ -61,6 +68,14 @@ import { CvModule } from './cv/cv.module';
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
     HttpClientModule,
+    TranslateModule.forRoot({
+      defaultLanguage: 'fr',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
   ],
   // Menu c'est ce que fournit le framework
   providers: [

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand">AXYUS</a>
+    <a class="navbar-brand">{{'APP.TITLE' | translate}}</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
       aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -20,6 +20,9 @@
         <a class="nav-link" [routerLink]="['color']" routerLinkActive="active text-primary">Color</a>
         <a class="nav-link" *ngIf="!isAuthenticated()" [routerLink]="['login']" routerLinkActive="active text-primary">Login</a>
         <a class="nav-link" (click)="logout()" *ngIf="isAuthenticated()" >Logout</a>
+
+        <button (click)="switchLangage('fr')" type="button" class="btn btn-outline-primary m-1">Français</button>
+        <button (click)="switchLangage('en')" type="button" class="btn btn-outline-danger m-1">English</button>
       </div>
     </div>
   </div>

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { FirstComponent } from './components/first/first.component';
 import { ColorComponent } from './components/color/color.component';
 import { SecondComponent } from './components/second/second.component';
@@ -35,7 +35,9 @@ const routes: Routes = [
 
 @NgModule({
   // On a définit notre routeur
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    preloadingStrategy: PreloadAllModules
+  })],
   // Tout ce qu'il y a à l'intérieur du module n'est visible que
   // pour le module
   // J'uilise export pour données l'accées à mes routes
