@@ -86,9 +86,9 @@ export class CvService {
   /**
    * Le flux des cvs sélectionnés
    */
-  selectCv$ = this.#selectCvSubject$.asObservable().pipe(
-    distinctUntilChanged()
-  );
+  selectCv$ = this.#selectCvSubject$
+    .asObservable()
+    .pipe(distinctUntilChanged());
   /**
    * Retourne la liste des cvs
    * @returns Cv[]
@@ -128,7 +128,7 @@ export class CvService {
    * Retourne un observable d'un cv
    * @returns Observable<Cv>
    */
-  deleteCvByIdFromApi(id: number): Observable<{count:number}> {
+  deleteCvByIdFromApi(id: number): Observable<{ count: number }> {
     // const params = new HttpParams().set(APP_CONST.accessTokenParamKey, this.authService.getToken());
     // const headers = new HttpHeaders().set(
     //   APP_CONST.authorizationHeaderKey,
@@ -145,7 +145,7 @@ export class CvService {
    * @returns Cv | null
    */
   findCvById(id: number): Cv | null {
-    return this.#cvs.find((cv) => cv.id == id) ?? null ;
+    return this.#cvs.find((cv) => cv.id == id) ?? null;
   }
 
   /**
@@ -170,5 +170,20 @@ export class CvService {
    */
   selectCv(cv: Cv) {
     this.#selectCvSubject$.next(cv);
+  }
+
+  getCvsByName(name: string): Observable<Cv[]> {
+    const params = new HttpParams().set(
+      'filter',
+      `{"where":{"name":{"like":"%${name}%"}}}`
+    );
+    return this.http.get<Cv[]>(APP_API.cvs, { params });
+  }
+  getCvsByProperty(property: string, value: string): Observable<Cv[]> {
+    const params = new HttpParams().set(
+      'filter',
+      `{"where":{"${property}":"${value}"}}`
+    );
+    return this.http.get<Cv[]>(APP_API.cvs, { params });
   }
 }
