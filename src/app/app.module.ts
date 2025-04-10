@@ -37,6 +37,8 @@ import { TestFormComponent } from './formulaires/test-form/test-form.component';
 import { LoginComponent } from './auth/login/login.component';
 import { TestObservableComponent } from './rxjs/test-observable/test-observable.component';
 import { AddCvComponent } from './cv/add-cv/add-cv.component';
+import { authProvider } from './auth/interceptors/auth.interceptor';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,7 +69,7 @@ import { AddCvComponent } from './cv/add-cv/add-cv.component';
     NF404Component,
     TestFormComponent,
     LoginComponent,
-    TestObservableComponent
+    TestObservableComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,12 +78,12 @@ import { AddCvComponent } from './cv/add-cv/add-cv.component';
     ReactiveFormsModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
-    HttpClientModule
+    HttpClientModule,
   ],
   // Menu c'est ce que fournit le framework
   providers: [
     // Je met le plat LoggerService dans mon menu
-    //LoggerService
+    authProvider,
   ],
   bootstrap: [AppComponent],
 })

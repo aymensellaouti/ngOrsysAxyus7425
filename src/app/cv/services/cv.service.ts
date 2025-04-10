@@ -113,16 +113,28 @@ export class CvService {
     return this.http.get<Cv>(APP_API.cvs + id);
   }
   /**
+   * Ajouter le cv
+   * @returns Observable<Cv>
+   */
+  addCvToApi(cv: Cv): Observable<Cv> {
+    // const params = new HttpParams().set(APP_CONST.accessTokenParamKey, this.authService.getToken());
+    // const headers = new HttpHeaders().set(
+    //   APP_CONST.authorizationHeaderKey,
+    //   this.authService.getToken()
+    // );
+    return this.http.post<Cv>(APP_API.cvs, cv);
+  }
+  /**
    * Retourne un observable d'un cv
    * @returns Observable<Cv>
    */
   deleteCvByIdFromApi(id: number): Observable<{count:number}> {
     // const params = new HttpParams().set(APP_CONST.accessTokenParamKey, this.authService.getToken());
-    const headers = new HttpHeaders().set(
-      APP_CONST.authorizationHeaderKey,
-      this.authService.getToken()
-    );
-    return this.http.delete<{ count: number }>(APP_API.cvs + id, { headers });
+    // const headers = new HttpHeaders().set(
+    //   APP_CONST.authorizationHeaderKey,
+    //   this.authService.getToken()
+    // );
+    return this.http.delete<{ count: number }>(APP_API.cvs + id);
   }
 
   /**
