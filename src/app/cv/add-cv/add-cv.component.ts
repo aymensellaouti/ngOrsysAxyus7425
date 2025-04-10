@@ -1,13 +1,23 @@
-import { Component, inject } from "@angular/core";
+import { Component, inject, OnDestroy } from "@angular/core";
 import { FormBuilder, Validators, AbstractControl } from "@angular/forms";
+import { APP_CONST } from "src/app/config/constantes.config";
+import { CvService } from "../services/cv.service";
+import { Cv } from "../model/cv.model";
+import { ToastrService } from "ngx-toastr";
+import { Router } from "@angular/router";
+import { APP_ROUTES } from "src/app/config/app-routes.config";
+import { catchError, EMPTY, tap } from "rxjs";
 
 @Component({
   selector: 'app-add-cv',
   templateUrl: './add-cv.component.html',
   styleUrls: ['./add-cv.component.css'],
 })
-export class AddCvComponent {
+export class AddCvComponent implements OnDestroy {
   formBuilder = inject(FormBuilder);
+  cvService = inject(CvService);
+  toastr = inject(ToastrService);
+  router = inject(Router);
 
   form = this.formBuilder.group(
     {
@@ -20,7 +30,7 @@ export class AddCvComponent {
         {
           validators: [Validators.required, Validators.pattern('[0-9]{8}')],
           asyncValidators: [],
-          updateOn: 'change'
+          updateOn: 'change',
         },
       ],
       age: [
@@ -45,10 +55,44 @@ export class AddCvComponent {
         } else {
           this.path?.enable();
         }
-      }
-    })
+      },
+    });
+
+    const savedForm = localStorage.getItem(APP_CONST.savedAddCvForm);
+    if (savedForm) {
+      this.form.patchValue(JSON.parse(savedForm));
+    }
+    //this.form.statusChanges
   }
+
   addCv() {
+    console.log('ajoute le cv');
+
+    if(!this.form.value.path) {
+      this.form.value['path'] = '';
+    }
+    // this.cvService.addCvToApi(this.form.value as Cv).subscribe({
+    //   next: (cv) => {
+    //     localStorage.removeItem(APP_CONST.savedAddCvForm);
+    //     this.toastr.success(`${cv.name} a été ajouté avec succès`);
+    //     this.router.navigate([APP_ROUTES.cv]);
+    //   },
+    //   error: (e) => {
+    //     this.toastr.error(`Problème d'ajout merci de contacter l'admin`);
+    //   }
+    // });
+    this.cvService.addCvToApi(this.form.value as Cv).pipe(
+      tap( (cv) => {
+        localStorage.removeItem(APP_CONST.savedAddCvForm);
+        this.form.reset();
+        this.toastr.success(`${cv.name} a été ajouté avec succès`);
+        this.router.navigate([APP_ROUTES.cv]);
+      }),
+      catchError((e) => {
+        this.toastr.error(`Problème d'ajout merci de contacter l'admin`);
+        return EMPTY;
+      })
+    ).subscribe()
   }
 
   get name(): AbstractControl {
@@ -68,5 +112,11 @@ export class AddCvComponent {
   }
   get cin(): AbstractControl {
     return this.form.get('cin')!;
+  }
+
+  ngOnDestroy(): void {
+    if(this.form.valid) {
+      localStorage.setItem(APP_CONST.savedAddCvForm, JSON.stringify(this.form.value));
+    }
   }
 }

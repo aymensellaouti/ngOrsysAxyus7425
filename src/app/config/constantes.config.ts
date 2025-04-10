@@ -3,4 +3,5 @@ export const APP_CONST = {
   tokenKey: 'token',
   accessTokenParamKey: 'access_token',
   authorizationHeaderKey: 'Authorization',
+  savedAddCvForm: 'savedAddCvForm',
 };
