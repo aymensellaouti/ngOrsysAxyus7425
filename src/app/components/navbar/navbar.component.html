@@ -13,7 +13,7 @@
         [routerLink]="['']"
         [routerLinkActiveOptions]="{exact: true}"
         >Home</a>
-        <a class="nav-link" [routerLink]="['cv']" routerLinkActive="active text-primary">Cv</a>
+        <a class="nav-link" [routerLink]="['cv']" routerLinkActive="active text-primary" [routerLinkActiveOptions]="{exact: true}">Cv</a>
         <a class="nav-link" *ngIf="isAuthenticated()" [routerLink]="['cv','add']" routerLinkActive="active text-primary">Add Cv</a>
         <a class="nav-link" [routerLink]="['todo']" routerLinkActive="active text-primary">Todo</a>
         <a class="nav-link" [routerLink]="['word']" routerLinkActive="active text-primary">Word</a>

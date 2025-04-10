@@ -12,20 +12,25 @@ import { APP_ROUTES } from './config/app-routes.config';
 import { NF404Component } from './components/nf404/nf404.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AddCvComponent } from './cv/add-cv/add-cv.component';
+import { authGuard } from './auth/guards/auth.guard';
 
 const routes: Routes = [
-  {path: '', component: FirstComponent},
-  {path: APP_ROUTES.cv, component: CvComponent},
-  {path: APP_ROUTES.todo, component: TodoComponent, canActivate:[]},
-  {path: 'word', component: MiniWordComponent},
-  {path: 'color', component: ColorComponent},
-  {path: 'login', component: LoginComponent},
-  {path: APP_ROUTES.addCv, component: AddCvComponent},
-  {path: APP_ROUTES.detailsCv, component: DetailsCvComponent},
-  {path: ':quelquechose', component: SecondComponent},
-  {path: 'test/lampe', component: LampeComponent},
+  { path: '', component: FirstComponent },
+  { path: APP_ROUTES.cv, component: CvComponent },
+  {
+    path: APP_ROUTES.addCv,
+    component: AddCvComponent,
+    canActivate: [authGuard],
+  },
+  { path: APP_ROUTES.detailsCv, component: DetailsCvComponent },
+  { path: APP_ROUTES.todo, component: TodoComponent, canActivate: [] },
+  { path: 'word', component: MiniWordComponent },
+  { path: 'color', component: ColorComponent },
+  { path: 'login', component: LoginComponent },
+  { path: ':quelquechose', component: SecondComponent },
+  { path: 'test/lampe', component: LampeComponent },
   // Si tu ne matches aucune autre route affiche ce composant
-  {path: '**', component: NF404Component},
+  { path: '**', component: NF404Component },
 ];
 
 @NgModule({
