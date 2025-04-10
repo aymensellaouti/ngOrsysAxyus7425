@@ -23,7 +23,6 @@ const routes: Routes = [
     canActivate: [authGuard],
   },
   { path: APP_ROUTES.detailsCv, component: DetailsCvComponent },
-  { path: APP_ROUTES.todo, component: TodoComponent, canActivate: [] },
   { path: 'word', component: MiniWordComponent },
   { path: 'color', component: ColorComponent },
   { path: 'login', component: LoginComponent },

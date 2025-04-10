@@ -27,8 +27,6 @@ import { HighlightDirective } from './directives/highlight.directive';
 import { RainbowDirective } from './directives/rainbow.directive';
 import { Btc2UsdPipe } from './pipes/btc2-usd.pipe';
 import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
-import { TodoComponent } from './todo/todo/todo.component';
-import { WeekTodoComponent } from './todo/week-todo/week-todo.component';
 import { EmbaucheComponent } from './cv/embauche/embauche.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { DetailsCvComponent } from './cv/details-cv/details-cv.component';
@@ -38,6 +36,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { TestObservableComponent } from './rxjs/test-observable/test-observable.component';
 import { AddCvComponent } from './cv/add-cv/add-cv.component';
 import { authProvider } from './auth/interceptors/auth.interceptor';
+import { TodoModule } from './todo/todo.module';
 
 @NgModule({
   declarations: [
@@ -62,8 +61,7 @@ import { authProvider } from './auth/interceptors/auth.interceptor';
     RainbowDirective,
     Btc2UsdPipe,
     DefaultImagePipe,
-    TodoComponent,
-    WeekTodoComponent,
+
     EmbaucheComponent,
     NavbarComponent,
     NF404Component,
@@ -73,6 +71,7 @@ import { authProvider } from './auth/interceptors/auth.interceptor';
   ],
   imports: [
     BrowserModule,
+    TodoModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
