@@ -16,27 +16,20 @@ import { TwoComponent } from './components/two/two.component';
 import { RotatingCardComponent } from './components/rotating-card/rotating-card.component';
 import { PereComponent } from './commInterCompo/pere/pere.component';
 import { FilsComponent } from './commInterCompo/fils/fils.component';
-import { CvComponent } from './cv/cv/cv.component';
-import { CvListComponent } from './cv/cv-list/cv-list.component';
-import { CvItemComponent } from './cv/cv-item/cv-item.component';
-import { CvCardComponent } from './cv/cv-card/cv-card.component';
 import { ExempleNgStyleComponent } from './directvies/exemple-ng-style/exemple-ng-style.component';
 import { MiniWordComponent } from './directvies/mini-word/mini-word.component';
 import { LampeComponent } from './directives/lampe/lampe.component';
 import { HighlightDirective } from './directives/highlight.directive';
 import { RainbowDirective } from './directives/rainbow.directive';
 import { Btc2UsdPipe } from './pipes/btc2-usd.pipe';
-import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
-import { EmbaucheComponent } from './cv/embauche/embauche.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { DetailsCvComponent } from './cv/details-cv/details-cv.component';
 import { NF404Component } from './components/nf404/nf404.component';
 import { TestFormComponent } from './formulaires/test-form/test-form.component';
 import { LoginComponent } from './auth/login/login.component';
 import { TestObservableComponent } from './rxjs/test-observable/test-observable.component';
-import { AddCvComponent } from './cv/add-cv/add-cv.component';
 import { authProvider } from './auth/interceptors/auth.interceptor';
-import { TodoModule } from './todo/todo.module';
+
+import { CvModule } from './cv/cv.module';
 
 @NgModule({
   declarations: [
@@ -48,21 +41,12 @@ import { TodoModule } from './todo/todo.module';
     RotatingCardComponent,
     PereComponent,
     FilsComponent,
-    CvComponent,
-    CvListComponent,
-    CvItemComponent,
-    CvCardComponent,
-    DetailsCvComponent,
-    AddCvComponent,
     ExempleNgStyleComponent,
     MiniWordComponent,
     LampeComponent,
     HighlightDirective,
     RainbowDirective,
     Btc2UsdPipe,
-    DefaultImagePipe,
-
-    EmbaucheComponent,
     NavbarComponent,
     NF404Component,
     TestFormComponent,
@@ -71,7 +55,6 @@ import { TodoModule } from './todo/todo.module';
   ],
   imports: [
     BrowserModule,
-    TodoModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,

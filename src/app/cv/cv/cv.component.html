@@ -2,8 +2,6 @@
   <div class="col">
     <div class="alert alert-warning">
       {{today | date: 'full' | uppercase }}
-      <p>{{1 | btc2Usd | currency}}</p>
-      <p>{{1 | btc2Usd : false}}</p>
     </div>
     <app-cv-list *ngIf="cvs$ | async as cvs" [cvs]="cvs" />
   </div>
