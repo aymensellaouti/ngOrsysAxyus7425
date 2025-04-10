@@ -11,7 +11,7 @@ export class AddCvComponent {
 
   form = this.formBuilder.group(
     {
-      name: ['', Validators.required],
+      name: ['', [Validators.required], []],
       firstname: ['', Validators.required],
       path: [''],
       job: ['', Validators.required],
@@ -19,6 +19,8 @@ export class AddCvComponent {
         '',
         {
           validators: [Validators.required, Validators.pattern('[0-9]{8}')],
+          asyncValidators: [],
+          updateOn: 'change'
         },
       ],
       age: [
@@ -35,7 +37,17 @@ export class AddCvComponent {
       updateOn: 'change',
     }
   );
-  constructor() {}
+  constructor() {
+    this.age.valueChanges.subscribe({
+      next: (age) => {
+        if (age < 18) {
+          this.path?.disable();
+        } else {
+          this.path?.enable();
+        }
+      }
+    })
+  }
   addCv() {
   }
 
